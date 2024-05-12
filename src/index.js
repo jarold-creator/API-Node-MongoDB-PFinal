@@ -11,6 +11,7 @@ app.use(cors());
 /**habilitar el json */
 app.use(express.json());
 
+/**habilitar el puerto para el servidor en la nube*/
 const PORT =  process.env.PORT || 4000
 
 /**rutas de los modulos */
