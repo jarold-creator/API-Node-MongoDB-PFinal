@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router();
 const path = require("path");
-const productoController = require('../controller/productoController')
+const productoController = require('../controller/productoControlller')
 
 /**rutas modulo productos */
 router.post('/', productoController.agregarProducto);

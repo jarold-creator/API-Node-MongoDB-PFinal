@@ -18,6 +18,7 @@ const PORT =  process.env.PORT || 4000
 app.use("/api/usuarios", require("../routers/usuarios"));
 app.use("/api/auth", require("../routers/auth"));
 app.use("/api/clientes", require("../routers/rutasCliente"));
+app.use("/api/productos", require("../routers/rutasProducto"));
 
 
 

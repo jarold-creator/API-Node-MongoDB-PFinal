@@ -6,7 +6,7 @@ exports.agregarProducto = async(req, res)=>{
         let productos;
         productos = new Producto(req.body);
         await productos.save();
-        res.send(productos);
+        res.send({productos});
     } catch (error) {
         console.log(error)
         res.status(500).json({ msg: 'Error al agregar productos' });
@@ -17,7 +17,7 @@ exports.agregarProducto = async(req, res)=>{
 exports.buscarProducto = async(req, res)=>{
     try {
         const productos = await Producto.find();
-        res.json(productos);        
+        res.json({productos});        
     } catch (error) {
         console.log(error)
         res.status(500).json({ msg: 'Error al buscar productos metodo buscarProducto()' });        
@@ -31,7 +31,7 @@ exports.buscarProductoPorId = async(req, res)=>{
         if(!productos){
             res.status(404).json({msg:"No se encontro el producto para este id"})
         }else{
-            res.json(productos);
+            res.json({productos});
         }
     } catch (error) {
         console.log(error.message);
@@ -62,7 +62,7 @@ exports.actualizarProducto = async(req, res)=>{
             productos.precio = precio;
 
             productos = await Producto.findOneAndUpdate({ _id: req.params.id }, productos, {new:true});
-            res.json(productos);
+            res.json({productos});
         }  
     } catch (error) {
         console.log(error);
